@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Sammich</title>
+        <style>
+        </style>
+        <!-- Reference to script -->
+        <script src="sammich.js"></script>
+    </head>
+    <body>
+        <div id="Headings">
+            <h1>Sammich Maker!</h1>
+            <h2>Please fill out the order form</h2>
+        </div>
+
+        <div id="sammichSelection">
+            <p>1. Please select type of Sammich</p>
+            <!--Sammich selections here-->
+            <input type="radio" name="type" value="ham" onclick="createSammich(this.value)">Ham Sammich</input>
+            <input type="radio" name="type" value="turkey" onclick="createSammich(this.value)">Turkey Sammich</input>
+            <input type="radio" name="type" value="roast" onclick="createSammich(this.value)">Roast Beef Sammich</input>
+            <!--Call function for Sammich selection -->
+        </div>
+
+        <div id="sammichBread">
+            <p>2. Please select bread</p>
+            <input type="radio" name="bread" value="white" onclick="addBread(this.value)">White Bread</input>
+            <input type="radio" name="bread" value="wheat" onclick="addBread(this.value)">Wheat Bread</input>
+            <input type="radio" name="bread" value="rye" onclick="addBread(this.value)">Rye Bread (extra $1.00)</input>
+            <!--call bread function-->
+        </div>
+
+        <div id="sammichToppings">
+            <p>3. Select toppings</p>
+            <input type="checkbox" name="toppings" value="lettuce" onchange="toppings(this.value)">Lettuce</input>
+            <input type="checkbox" name="toppings" value="onion" onchange="toppings(this.value)">Onions</input>
+            <input type="checkbox" name="toppings" value="mayo" onchange="toppings(this.value)">Mayo</input>
+            <input type="checkbox" name="toppings" value="mustard" onchange="toppings(this.value)">Special Sammich Mustard (extra $0.50)</input>
+        </div>
+
+        <div id="calculate">
+            <p>
+                <button onclick="calcTotal()">Calculate Order</button>
+            </p>
+        </div>
+
+        <div id="sammichTotal" style="visibility: hidden">
+            <span style="font-weight: bold">Order:</span>
+            <span id="sammichType"></span>
+            <span>on </span>
+            <span id="sammichBreadSelection"></span>
+            <span> with </span>
+            <span id="sammichToppingsSelection"></span>
+            <p>
+            <span style="font-weight: bold">Total:</p> 
+            <span id="sammichTotalFinal"></span>
+            </p> 
+        </div>
+    </body>
+</html>

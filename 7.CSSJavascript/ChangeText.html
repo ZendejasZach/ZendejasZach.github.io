@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>test</title>
+    <style type="text/css">
+        /* initial styles */
+        
+        #testText {
+            color: black;
+        }
+        
+        body {
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript">
+        function changeElement() {
+            // grabs the field value
+            var color = document.getElementById("field").value;
+            console.log("the text entered is " + color);
+            // checks if its a valid hex code
+            if (color <= "ffffff" && color >= "000000") { // kinda hacky but it works
+                testText.style.color = color;
+            }
+            // error message for incorrect code
+            else {
+                console.log("not a color");
+                document.getElementById("testText").innerHTML = "incorrect color choice";
+                testText.style.color = "red";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p id="instructions">
+        Type in hex color code (without the #) and the test text will change to that color when you click <i>submit</i></p>
+    </p>
+
+    #<input id="field"></input>
+    <button id="button" onclick=changeElement()>Submit</button>
+
+    <p id="testText">Here is some text to test with!</p>
+
+</body>
+
+</html>
