@@ -1,0 +1,1 @@
+Purpose: Demonstrate fluency in using XMLHTTPREQUEST to consume a JSON Web Service

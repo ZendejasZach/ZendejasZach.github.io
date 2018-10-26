@@ -1,0 +1,2 @@
+Purpose: Demonstrate fluency in Local Storage API, Storing and retrieving simple
+data, arrays, associative arrays and objects.

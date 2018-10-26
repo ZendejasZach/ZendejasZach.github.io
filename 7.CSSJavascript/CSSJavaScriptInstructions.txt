@@ -1,0 +1,8 @@
+Purpose: Demonstreate fluency in Manipulating CSS Class Properties using JavaScript
+
+Instructors Comments:
+is it not a basic example yet. It is a start in the direction of using JS to modify 
+the CSS style properties. There a multitude of properties to change and ways to 
+change them. Keep exploring and adding features. Changing font style, borders, 
+justification. Changing the class of an element to have it adopt the style defined 
+in a Style tag. 

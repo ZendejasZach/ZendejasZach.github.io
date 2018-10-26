@@ -1,0 +1,2 @@
+Purpose: Demonstrate fluency in creating CSS3 Transtitions and animations in CSS and 
+triggering them with JavaScript
