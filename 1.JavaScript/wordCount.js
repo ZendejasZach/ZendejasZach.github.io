@@ -67,7 +67,7 @@ function wordCount(userInput) {
     //console.log(wordCount);
 
     // HTML insert prep
-    var HTML = "<p>Here are the results</p><table><tr><th>Word</th><th>Count</th></tr>";
+    var HTML = "<p>Here are the results:</p><table><tr><th>Word</th><th>Count</th></tr>";
 
     // output the results to the user.
     for (i in wordCount) {
