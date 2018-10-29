@@ -19,7 +19,14 @@
 
    <div id="text field">
       <input type="input" id="input" value="Insert Text Here">
-      <input type="submit" value="Submit" onclick="myFunction(input.value)">
+      <input type="submit" value="Submit" onclick="wordCount(input.value)">
+   </div>
+
+   <div id="results" style=visibility:hidden>
+   </div>
+
+   <div>
+      <button onclick="reload()">Reset</button>
    </div>
 </body>
 
