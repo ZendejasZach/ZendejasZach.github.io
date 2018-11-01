@@ -1,2 +1,0 @@
-Purpose: Demonstrate fluency in Loops, Conditional Statements, Functions,Variables,
-Parameters, Arrays, Associative Arrays
