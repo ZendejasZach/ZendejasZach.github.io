@@ -4,12 +4,12 @@
 
 <head>
     <style>
-        /*---Transformations---*/
+        /*---2D Transformations---*/
+        /*CSS Transforms allow you to translate, rotate, scale, and skew elements*/
         /*
-      CSS Transforms allow you to translate, rotate, scale, and skew elements
+      https://www.w3schools.com/css/css3_2dtransforms.asp
       */
-        /*Translate Method*/
-        /*
+        /*Translate Method
       The translate method moves an elements X & Y position
       the example below will move the element 50 pixels to the right
       and 100 pixels down from its current position
@@ -100,7 +100,37 @@
             -webkit-transform: matrix(1, -0.3, 0, 1, 0, 0);
             transform: matrix(1, -0.3, 0, 1, 0, 0);
         }
-        /*---Transitions---*/
+        /*---3D Transformations---
+        3D transformations can use previous methods but can also include the
+        Z-axis (translateZ, scaleZ, etc)
+        https://www.w3schools.com/css/css3_3dtransforms.asp
+
+        /*rotateX method
+        Rotates an element around its X-axis at a given degree*/
+        
+        #rotateX {
+            -webkit-transform: rotateX(150deg);
+            transform: rotateX(150deg);
+        }
+        /*rotateY method
+        Same as above but rotates at the Y-axis*/
+        
+        #rotateY {
+            -webkit-transform: rotateY(130deg);
+            transform: rotateY(130deg);
+        }
+        /*rotateZ Method
+        Same as previous but rotates on the Z-axis*/
+        
+        #rotateZ {
+            -webkit-transform: rotateZ(90deg);
+            transform: rotateZ(90deg);
+        }
+        /*---Transitions---
+        CSS transitions allows you to change property values smoothly
+        (from one value to another), over a given duration.
+        https://www.w3schools.com/css/css3_transitions.asp
+        */
         
         #transition1 {
             width: 100px;
@@ -137,7 +167,109 @@
             width: 300px;
             background: blue;
         }
+        /* you can also add transformations with the transitions*/
+        
+        #transition2 {
+            width: 100px;
+            height: 100px;
+            background: purple;
+            /* you specify the time for the transformation*/
+            transition: width 2s, height 2s, transform 2s;
+        }
+        /*then specify the transformation in the action*/
+        
+        #transition2:hover {
+            width: 300px;
+            height: 300px;
+            transform: rotate(180deg);
+        }
+        /*---Animations--
+        An animation lets an element gradually change from one style to another.
+        You can change as many CSS properties you want, as many times you want.
+        To use CSS animation, you must first specify some keyframes for the animation.
+        Keyframes hold what styles the element will have at certain times.
+        https://www.w3schools.com/css/css3_animations.asp
+
+        /*the keyframe rule
+        The styles that you specify in the keyframe rule, will change from that
+        style to the new style*/
+        
+        @keyframes animations1 {
+            /* set your new styles here and what it will be changing from*/
+            from {
+                background-color: red
+            }
+            to {
+                backfround-color: yellow
+            }
+        }
+        
+        #animation1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*specify the name from the name given above*/
+            animation-name: animations1;
+            animation-duration: 4s;
+        }
+        /*you can also add percents to change when teh style will change*/
+        
+        @keyframes animations2 {
+            /* the starting value is 0%, same as the 'from' statement above*/
+            0% {
+                background-color: red;
+            }
+            25% {
+                background-color: yellow;
+            }
+            50% {
+                background-color: blue;
+            }
+            75% {
+                background-color: green;
+            }
+            100% {
+                background-color: purple;
+            }
+        }
+        
+        #animation2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: animations2;
+            animation-duration: 4s;
+        }
+        /* there are many other animation properties that can be explored*/
+        /*animation shorthand
+        You can write shorthand of animations in the following way:*/
+        
+        #animationLong {
+            animation-name: example;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+        #animationShort {
+            animation: example 5s linear 2s infinite alternate;
+        }
+        /* these two examples are the same*/
+        /*--- JavaScript and CSS Transitions--
+        You can trigger these animations using JavaScript.
+        While you can use standard events like "onClick" you can also use
+        Event Listeners like so. */
     </style>
+    <script>
+        var JS = document.getElementById('#animationShort');
+        JS.addEventListener('transitionend', onTransitionEnd, false);
+
+        function onTransitionEnd() {
+            //whatever your function wants to do here.
+        }
+    </script>
 </head>
 
 <body>
