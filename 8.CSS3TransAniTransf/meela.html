@@ -1,43 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type="text/javascript" src="meela.js"></script>
-        <link rel="stylesheet" href="meela.css">
-        <title>My Daughter Meela</title>
-    </head>
-    <body>
-        <div id="headings">
-            <h1>Meela</h1>
-            <h2>An Incredible Journey</h2>
-        </div>
 
-        <div id="intro">
-            <p>Explore the early life of Meela Zendejas and the miracles of modern medicine.</p>
-            <p>Click on an image to learn more.</p>
-        </div>
+<head>
+    <script type="text/javascript" src="meela.js"></script>
+    <link rel="stylesheet" href="meela.css">
+    <title>My Daughter Meela</title>
+</head>
 
-        <!--Heading Images-->        
-            <div id="headingImages">
-                <div id="birth" class="headingImage">
-                    <img id="image1" src="birth1.jpg" alt="Birth" style="width:100%; height:100%">
-                    <div class="overlay">
-                        <p><strong>Birth</strong></p>
-                    </div>
-                </div>
-            
-                <div id="trach" class="headingImage">
-                    <img id="image2" src="trach1.jpg" alt="Trach" style="width:100%; height:100%">
-                    <div class="overlay">
-                        <p><strong>Trach</strong></p>
-                    </div>
-                </div>
+<body>
+    <div id="headings" class="text">
+        <h1>Meela</h1>
+        <h2>An Incredible Journey</h2>
+    </div>
 
-                <div id="personality" class="headingImage">
-                    <img id="image3" src="personality1.jpg" alt="Personality" style="width:100%; height:100%">
-                    <div class="overlay">
-                        <p><strong>Personality</strong></p>
-                    </div>
-                </div>
+    <div id="intro" class="text">
+        <p>Explore the early life of Meela Zendejas and the miracles of modern medicine.</p>
+        <p>Click on an image to learn more.</p>
+    </div>
+
+    <!--Heading Images-->
+    <div id="headingImages">
+        <div id="birth" class="headingImage">
+            <img src="birth1.jpg" alt="Birth" style="width:100%; height:100%" class="top">
+            <img src="personality2.jpeg" alt="Personality" style="width:100%; height:100%" class="middle">
+            <img src="trach2.jpg" alt="Personality" style="width:100%; height:100%" class="bottom">
+            <div class="overlay" onclick="imageClick('birth')">
+                <p><strong>Birth</strong></p>
             </div>
-    </body>
+        </div>
+
+        <div id="trach" class="headingImage">
+            <img src="trach1.jpg" alt="Trach" style="width:100%; height:100%" class="top">
+            <img src="birth2.jpeg" alt="Trach" style="width:100%; height:100%" class="middle">
+            <img src="personality3.jpg" alt="Trach" style="width:100%; height:100%" class="bottom">
+            <div class="overlay" onclick="imageClick('trach')">
+                <p><strong>Trach</strong></p>
+            </div>
+        </div>
+
+        <div id="personality" class="headingImage">
+            <img src="personality1.jpg" alt="Personality" style="width:100%; height:100%" class="top">
+            <img src="trach3.jpg" alt="Personality" style="width:100%; height:100%" class="middle">
+            <img src="birth3.jpg" alt="Personality" style="width:100%; height:100%" class="top">
+            <div class="overlay" onclick="imageClick('personality')">
+                <p><strong>Personality</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!--Text that appears on click-->
+    <div id="imageText" class="text">
+        <p>Test Text Here</p>
+        <p><strong>Back</strong></p>
+    </div>
+
+</body>
+
 </html>
