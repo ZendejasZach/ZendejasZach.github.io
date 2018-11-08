@@ -2,14 +2,14 @@ body{
     background: black;
 }
 
-#headings, p{
+#headings{
     color: pink;
     text-align: center;
 }
 
 img{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }
 
 .centerAlign{
@@ -28,3 +28,42 @@ img{
     text-align: center;
 }
 
+.headingImage{
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    margin: 30px;
+}
+
+.overlay{
+    opacity: 0;
+    transition:opacity 0.3s;
+    background-color: lightpink;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.headingImage:hover > .overlay{
+    opacity: 0.5;
+}
+
+#birth{
+    background-image: url("birth1.jpg");
+}
+
+#trach{
+    background-image: url("trach1.jpg");
+}
+
+#personality{
+    background-image: url("personality1.jpg");
+}
