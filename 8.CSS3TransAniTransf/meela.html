@@ -15,43 +15,48 @@
 
     <div id="intro" class="text">
         <p>Explore the early life of Meela Zendejas and the miracles of modern medicine.</p>
-        <p>Click on an image to learn more.</p>
+        <p>Click on the image to learn more.</p>
     </div>
 
-    <!--Heading Images-->
-    <div id="headingImages">
-        <div id="birth" class="headingImage">
-            <img src="birth1.jpg" alt="Birth" style="width:100%; height:100%" class="top">
-            <img src="personality2.jpeg" alt="Personality" style="width:100%; height:100%" class="middle">
-            <img src="trach2.jpg" alt="Personality" style="width:100%; height:100%" class="bottom">
-            <div class="overlay" onclick="imageClick('birth')">
-                <p><strong>Birth</strong></p>
-            </div>
-        </div>
-
-        <div id="trach" class="headingImage">
-            <img src="trach1.jpg" alt="Trach" style="width:100%; height:100%" class="top">
-            <img src="birth2.jpeg" alt="Trach" style="width:100%; height:100%" class="middle">
-            <img src="personality3.jpg" alt="Trach" style="width:100%; height:100%" class="bottom">
-            <div class="overlay" onclick="imageClick('trach')">
-                <p><strong>Trach</strong></p>
-            </div>
-        </div>
-
-        <div id="personality" class="headingImage">
-            <img src="personality1.jpg" alt="Personality" style="width:100%; height:100%" class="top">
-            <img src="trach3.jpg" alt="Personality" style="width:100%; height:100%" class="middle">
-            <img src="birth3.jpg" alt="Personality" style="width:100%; height:100%" class="top">
-            <div class="overlay" onclick="imageClick('personality')">
-                <p><strong>Personality</strong></p>
+    <!--Images-->
+    <div class="container" id="container">
+        <div id="firstImage">
+            <img src="birth1.jpg" class="image" id="image1">
+            <div id="overlay" class="overlay" onclick="start()">
+                <div class="oText"><b>Start</b></div>
             </div>
         </div>
     </div>
 
-    <!--Text that appears on click-->
-    <div id="imageText" class="text">
-        <p>Test Text Here</p>
-        <p><strong>Back</strong></p>
+    <div id="secondImage">
+        <img src="trach2.jpg" class="image">
+    </div>
+
+    <div id="thirdImage">
+        <img src="personality1.jpg" class="image">
+    </div>
+
+    <div id="story">
+        <h4>(Center Image)</h4>
+        <p>
+            This is Meela Zendejas. Her start to life has been a continuous uphill battle.
+            Meela was born at 27 due to complications with Mom. However, due to additional
+            conplications, Meela suffered from IUGR (Intrauterine growth restriction) and 
+            only measured at 20 weeks and weighing only 15 Oz.
+        </p>
+
+        <h4>(Left Image)</h4>
+        <p>
+            After multiple failed attempts to remove her breathing tube, doctors decided
+            that a tracheostomy was needed. She still has her trach to this day.
+        </p>
+
+        <h4>(Right Image)</h4>
+        <p>
+            Although she has been through so much in her early days, her personality
+            shined. As the days went on in the NICU, we started to see her sassy and 
+            loving personality bloom to what it is today. 
+        </p>
     </div>
 
 </body>
