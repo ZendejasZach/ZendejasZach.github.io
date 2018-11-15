@@ -2,19 +2,45 @@
 
 <head>
    <title>HTML Tags</title>
-   <script type="text/javascript" src="tags.js"></script>
-   <link rel="stylesheet" href="tags.css">
+   <style>
+      #header{
+         height: 100px;
+         width: 300;
+         border: 1px solid black;
+         position: relative;
+      }
+      *{
+         background: lightblue;
+      }
+   </style>
 </head>
 
 <body>
-   <canvas id="header"></canvas>
-   <script>
-      var h = document.getElementById("header");
-      var ctx = h.getContext("2d");
-      ctx.font = "30px Arial";
-      ctx.fillText("HTML Tags!", 75, 75);
-   </script>
-
+   <div>
+      <!--Hey look a box with text in it!-->
+      <canvas id="header"></canvas>
+      <script>
+         var h = document.getElementById("header");
+         var ctx = h.getContext("2d");
+         ctx.font = "40px Times";
+         ctx.fillText("HTML Tags!", 40, 80);
+      </script>
+   </div>
+   <div>
+      <p>Here is an example of HTML tags.</p>
+   </div>
+   <div>
+      <video width="320" height="240" controls>
+         <source src="Surfer1.mp4" type="video/mp4">
+      </video>
+      <p>Hey look a video!</p>
+   </div>
+   <div>
+      <audio controls>
+         <source src="Wipeout.mp3" type="audio/mpeg">
+      </audio>
+      <p>And audio! Play together for maximum effect.</p>
+   </div>
 </body>
 
 </html>
