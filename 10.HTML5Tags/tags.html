@@ -12,19 +12,25 @@
       *{
          background: lightblue;
       }
+      p{
+         color: blue;
+      }
    </style>
 </head>
 
 <body>
    <div>
       <!--Hey look a box with text in it!-->
-      <canvas id="header"></canvas>
-      <script>
-         var h = document.getElementById("header");
-         var ctx = h.getContext("2d");
-         ctx.font = "40px Times";
-         ctx.fillText("HTML Tags!", 40, 80);
-      </script>
+      <canvas id="header">
+         <script>
+            var h = document.getElementById("header");
+            var ctx = h.getContext("2d");
+            ctx.font = "30px Comic Sans MS";
+            ctx.fillStyle = "blue";
+            ctx.textAlign = "center";
+            ctx.fillText("Wipeout!", h.width / 2, h.height / 2);
+         </script>
+      </canvas>
    </div>
    <div>
       <p>Here is an example of HTML tags.</p>
