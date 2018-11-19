@@ -1,0 +1,56 @@
+<html>
+
+<head>
+   <title>JSON</title>
+   <script type="text/javascript" src="json.js"></script>
+   <style>
+      #confirmation{
+         visibility: hidden;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>Form Fill</h1>
+   <h2>Please fill out the following form.</h2>
+   <!--User Input-->
+   <div id="orderForm">
+      First Name:<br>
+      <input id="firstName" type="text" name="firstName"><br>
+
+      Last Name:<br>
+      <input id="lastName" type="text" name="lastName"><br>
+
+      Address:<br>
+      <input id="address" type="text" name="address"><br>
+
+      City:<br>
+      <input id="city" type="text" name="city"><br>
+
+      State:<br>
+      <input id="state" type="text" name="state"><br>
+
+      Zip Code:<br>
+      <input id="zip" type="text" name="zip"><br>
+
+      Credit Card Number:<br>
+      <input id="CCNumber" type="text" name="cardNumber"><br>
+
+      Security Code:<br>
+      <input id="sCode" type="text" name="securityCode"><br>
+
+      <button type="submit" value="Submit" onclick="parse()">Submit</button>
+   </div>
+   <!--Show information on submission-->
+   <div id="confirmation">
+      <h2>Order Confirmation (Parsed Object)</h2>
+      <p>Item: Hot Dogs (500x) $1,000</p>
+      <p id="Name"></p>
+      <p id="pAddress"></p>
+      <p id="pCCNum"></p><br>
+      <h3>Here is the same data as a string</h3>
+      <p id="string"></p>
+   </div>
+</body>
+
+</html>
