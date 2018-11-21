@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<body>
+   <h1>Ajax Demo</h1>
+
+   <p id="demo">Click a button below</p>
+
+   <button type="button" onclick="loadFace('shrug')">Shrug</button>
+   <button type="button" onclick="loadFace('fight')">Fight</button>
+   <button type="button" onclick="loadFace('flip')">Table Flip</button>
+
+   <script>
+      function loadFace(face) {
+         var xhttp;
+         if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+         } else {
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+         }
+         xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               document.getElementById("demo").innerHTML = this.responseText;
+            }
+         };
+         if (face == 'shrug') {
+            xhttp.open("GET", "shrug.txt", true);
+            xhttp.send();
+         }
+         else if (face == 'fight') {
+            xhttp.open("GET", "fight.txt", true);
+            xhttp.send();
+         }
+         else if (face == 'flip') {
+            xhttp.open("GET", "flip.txt", true);
+            xhttp.send();
+         }
+      }
+   </script>
+</body>
+
+</html>
