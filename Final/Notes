@@ -1,0 +1,10 @@
+Project:
+   A widget site to show, weather, calendar, and Google News
+
+Features:
+   1. Initial setup (get zip code, local storage)
+   2. Nice background (Bing photos?)
+   3. Weather Widget
+   4. Google calendar (streatch)
+   5. News Widget
+
