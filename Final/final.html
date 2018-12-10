@@ -16,9 +16,37 @@
    <div id="weather">
       <p>Weather here</p>
       <button onclick="getWeather()">Weather</button>
+      <button onclick="zipValidation()">Zip Validation</button>
    </div>
-   <div id="calendar/Reddit">
+   <div id="reddit">
+      <!--For initial purposes, Will need to take out in for production-->
       <button onclick="getReddit()">Reddit</button>
+
+      <!--Place Holders-->
+      <h2 id="subreddit"></h2>
+      <table id="redditTable">
+         <tr>
+            <th>Thumbnail</th>
+            <th>Title</th>
+         </tr>
+         <tr>
+            <td id="link0TH"></td>
+            <td id="link0T"></td>
+         </tr>
+         <tr>
+            <td id="link1TH"></td>
+            <td id="link1T"></td>
+         </tr>
+         <tr>
+            <td id="link2TH"></td>
+            <td id="link2T"></td>
+         </tr>
+         <tr>
+            <td id="link3TH"></td>
+            <td id="link3T"></td>
+         </tr>
+      </table>
+
    </div>
 </body>
 
