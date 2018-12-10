@@ -1,7 +1,5 @@
 function zipValidation(zip) {
    // initial testing
-   var zip = 8412057;
-
    var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
    console.log(isValidZip);
 }
@@ -77,4 +75,39 @@ function getReddit() {
 
    // send
    redditRequest.send();
+}
+
+function getNews() {
+   var newsRequest = new XMLHttpRequest();
+
+   // Open the connection
+   openNews();
+   function openNews() {
+      newsRequest.open('GET'
+         , 'https://newsapi.org/v2/top-headlines?'
+         + 'country=us&'
+         + 'apiKey=32b62204413f47e6b2b21ccecfb75f79'
+         , true)
+   }
+
+   // Parse
+   newsRequest.onload = function () {
+      var news = JSON.parse(this.response);
+      console.log(news);
+
+      // replace HTML
+      for (i = 0; i < 4; i++) {
+         // Title
+         document.getElementById("nLink" + i + "T").innerHTML = '<a href='
+            + news.articles[i].url
+            + '>'
+            + news.articles[i].title;
+         // source
+         document.getElementById("nLink" + i + "S").innerHTML = news.articles[i].source.name;
+      }
+   }
+
+
+   // send request
+   newsRequest.send();
 }
