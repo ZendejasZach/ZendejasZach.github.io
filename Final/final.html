@@ -7,69 +7,73 @@
 </head>
 
 <body>
-   <div id="name">
-      <p>Hello {Name}</p>
-   </div>
-   <div id="news">
-      <p>News Goes Here</p>
-      <table id="newsTable">
-         <tr>
-            <th>Article</th>
-            <th>Source</th>
-         </tr>
-         <tr>
-            <td id="nLink0T"></td>
-            <td id="nLink0S"></td>
-         </tr>
-         <tr>
-            <td id="nLink1T"></td>
-            <td id="nLink1S"></td>
-         </tr>
-         <tr>
-            <td id="nLink2T"></td>
-            <td id="nLink2S"></td>
-         </tr>
-         <tr>
-            <td id="nLink3T"></td>
-            <td id="nLink3S"></td>
-         </tr>
-      </table>
-      <button onclick="getNews()">News</button>
-   </div>
-   <div id="weather">
-      <p>Weather here</p>
-      <button onclick="getWeather()">Weather</button>
-      <button onclick="zipValidation()">Zip Validation</button>
-   </div>
-   <div id="reddit">
-      <!--For initial purposes, Will need to take out for production-->
-      <button onclick="getReddit()">Reddit</button>
+   <div id="bg">
+      <!--Testing-->
+      <button onclick="getBackground()">Change Background</button>
+      <div id="name">
+         <p>Hello {Name}</p>
+      </div>
+      <div id="news">
+         <p>News Goes Here</p>
+         <table id="newsTable">
+            <tr>
+               <th>Article</th>
+               <th>Source</th>
+            </tr>
+            <tr>
+               <td id="nLink0T"></td>
+               <td id="nLink0S"></td>
+            </tr>
+            <tr>
+               <td id="nLink1T"></td>
+               <td id="nLink1S"></td>
+            </tr>
+            <tr>
+               <td id="nLink2T"></td>
+               <td id="nLink2S"></td>
+            </tr>
+            <tr>
+               <td id="nLink3T"></td>
+               <td id="nLink3S"></td>
+            </tr>
+         </table>
+         <button onclick="getNews()">News</button>
+      </div>
+      <div id="weather">
+         <p>Weather here</p>
+         <button onclick="getWeather()">Weather</button>
+         <button onclick="zipValidation()">Zip Validation</button>
+      </div>
+      <div id="reddit">
+         <!--For initial purposes, Will need to take out for production-->
+         <button onclick="getReddit()">Reddit</button>
 
-      <!--Place Holders-->
-      <h2 id="subreddit"></h2>
-      <table id="redditTable">
-         <tr>
-            <th>Thumbnail</th>
-            <th>Title</th>
-         </tr>
-         <tr>
-            <td id="link0TH"></td>
-            <td id="link0T"></td>
-         </tr>
-         <tr>
-            <td id="link1TH"></td>
-            <td id="link1T"></td>
-         </tr>
-         <tr>
-            <td id="link2TH"></td>
-            <td id="link2T"></td>
-         </tr>
-         <tr>
-            <td id="link3TH"></td>
-            <td id="link3T"></td>
-         </tr>
-      </table>
+         <!--Place Holders-->
+         <h2 id="subreddit"></h2>
+         <table id="redditTable">
+            <tr>
+               <th>Thumbnail</th>
+               <th>Title</th>
+            </tr>
+            <tr>
+               <td id="link0TH"></td>
+               <td id="link0T"></td>
+            </tr>
+            <tr>
+               <td id="link1TH"></td>
+               <td id="link1T"></td>
+            </tr>
+            <tr>
+               <td id="link2TH"></td>
+               <td id="link2T"></td>
+            </tr>
+            <tr>
+               <td id="link3TH"></td>
+               <td id="link3T"></td>
+            </tr>
+         </table>
 
+      </div>
    </div>
 </body>
 

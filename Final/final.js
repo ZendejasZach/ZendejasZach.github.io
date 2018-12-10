@@ -111,3 +111,30 @@ function getNews() {
    // send request
    newsRequest.send();
 }
+
+function getBackground() {
+   // create request
+   var backgroundRequest = new XMLHttpRequest();
+
+   // open a connection
+   openBackground();
+   function openBackground() {
+      backgroundRequest.open('GET', 'http://www.reddit.com/r/earthporn/new.json?sort=top&t=day&limit=5', true);
+   }
+
+   // parse the data
+   backgroundRequest.onload = function () {
+      var background = JSON.parse(this.response);
+      console.log(background);
+
+      // replace background
+      // show headings
+      //document.getElementsByClassName("bg").style.background = "url('" + background.data.children[0].data.url + "')";
+      document.getElementById("bg").style.backgroundImage = "url('" + background.data.children[0].data.url + "')";
+      //docBack[0].style.backgroundimage = background.data.children[0].data.url;
+      console.log(background.data.children[0].data.url);
+   };
+
+   // send
+   backgroundRequest.send();
+}
