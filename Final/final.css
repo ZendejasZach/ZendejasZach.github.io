@@ -6,6 +6,18 @@ body, html{
    height: 100%;
 }
 
+#myHome{
+   position: absolute;
+   right: 50%;
+   top: 2%;
+   text-align: center;
+   padding: 10px;
+   /* Rounded opaque borders */
+   background:rgba(255, 255, 255, 0.75);
+   border-radius: 25px;
+   animation: fadein 3s;
+}
+
 #bg{
    height:100%;
    background-position: center;
@@ -15,34 +27,47 @@ body, html{
 }
 #name{
    text-align: center;
-   top: 50%;
-   left: 50%;
+   right: 2%;
+   top: 2%;
    position: absolute;
+   padding: 10px;
+   /* Rounded opaque borders */
+   background:rgba(255, 255, 255, 0.75);
+   border-radius: 25px;
+   animation: fadein 3s;
 }
 
 #reddit{
    text-align: center;
    bottom: 0%;
    left: 50%;
+   width: 40%;
+   height: 40%;
    position: absolute;
+   /* overflow-x: scroll; */
 }
 
 #news{
    text-align: center;
-   top: 0%;
-   right: 0%;
+   bottom: 2%;
+   right: 2%;
+   width: 45%;
+   /* height: 40%; */
    position: absolute;
-   padding: 20px;
     /* Rounded opaque borders */
    background:rgba(255, 255, 255, 0.75);
    border-radius: 25px;
    animation: fadein 3s;
 }
 
+td{
+   padding: 15px;
+}
+
 #weather{
    text-align: center;
-   top: 0%;
-   left: 0%;
+   top: 2%;
+   left: 2%;
    position: absolute;
    padding: 20px;
    /* Rounded opaque borders */
@@ -50,10 +75,11 @@ body, html{
    border-radius: 25px;
    animation: fadein 3s;
 }
- @keyframes fadein{
-    from{opacity: 0;}
-    to{opacity: 1;}
- }
+
+@keyframes fadein{
+   from{opacity: 0;}
+   to{opacity: 1;}
+}
 
 #high{
    color: rgb(187, 0, 0);
@@ -63,10 +89,13 @@ body, html{
    color: rgb(0, 0, 165);
 }
 
-#redditTable{
-   visibility: hidden;
+#reddit{
    /* Rounded opaque borders */
    background:rgba(255, 255, 255, 0.75);
    border-radius: 25px;
    animation: fadein 3s;
+   bottom: 2%;
+   left: 2%;
+   position: absolute;
+   height: 40%;
 }

@@ -6,13 +6,16 @@
    <script type="text/javascript" src="final.js"></script>
 </head>
 
-<body onload = "getWeather(), getBackground()">
+<body onload = "getWeather(), getBackground(), getNews(), getReddit()">
    <div id="bg">
+      <div id="myHome">
+         <h2>Welcome to</h2>
+         <h2>myHome</h2>
+      </div>
       <div id="name">
          <p>Hello {Name}</p>
       </div>
       <div id="news">
-         <p>News Goes Here</p>
          <table id="newsTable">
             <tr>
                <th>Article</th>
@@ -35,16 +38,11 @@
                <td id="nLink3S"></td>
             </tr>
          </table>
-         <button onclick="getNews()">News</button>
       </div>
       <div id="weather">
          <p></p>
       </div>
       <div id="reddit">
-         <!--For initial purposes, Will need to take out for production-->
-         <button onclick="getReddit()">Reddit</button>
-
-         <!--Place Holders-->
          <h2 id="subreddit"></h2>
          <table id="redditTable">
             <tr>
