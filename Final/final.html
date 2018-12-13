@@ -6,10 +6,8 @@
    <script type="text/javascript" src="final.js"></script>
 </head>
 
-<body>
+<body onload = "getWeather(), getBackground()">
    <div id="bg">
-      <!--Testing-->
-      <button onclick="getBackground()">Change Background</button>
       <div id="name">
          <p>Hello {Name}</p>
       </div>
@@ -40,9 +38,7 @@
          <button onclick="getNews()">News</button>
       </div>
       <div id="weather">
-         <p>Weather here</p>
-         <button onclick="getWeather()">Weather</button>
-         <button onclick="zipValidation()">Zip Validation</button>
+         <p></p>
       </div>
       <div id="reddit">
          <!--For initial purposes, Will need to take out for production-->

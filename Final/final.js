@@ -21,13 +21,59 @@ function getWeather() {
    // parse the data
    weatherRequest.onload = function () {
       weatherData = JSON.parse(this.response);
-      //console.log(weatherData);
-      //console.log(weatherData.main.temp);
+      console.log(weatherData);
+      console.log(weatherData.main.temp);
       weatherData.main.temp = convertKelvin(weatherData.main.temp);
+      weatherData.main.temp_max = convertKelvin(weatherData.main.temp_max);
+      weatherData.main.temp_min = convertKelvin(weatherData.main.temp_min);
+      console.log(weatherData.main.temp_max);
 
       // replace HTML elements with weather
-      document.getElementById("weather").innerHTML = "The weather in " + weatherData.name + " is " + weatherData.main.temp + " Degrees";
+      // Cold weather
+      if (weatherData.main.temp_max < 32){
+         //console.log("ITS COLD");
+         document.getElementById("weather").innerHTML = "<p>You'll need a heavy jackett</p>"
+               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+      }
+
+      // cool weather
+      else if (weatherData.main.temp_max <= 60 && weatherData.main.temp_max >= 33){
+         // console.log("its Cool");
+         document.getElementById("weather").innerHTML = "<p>You'll need a jackett</p>"
+               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+ 
+      }
+
+      // nice weather
+      else if (weatherData.main.temp_max <= 80 && weatherData.main.temp_max >= 61){
+          document.getElementById("weather").innerHTML = "<p>Its nice out</p>"
+               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+      }
+
+      // warm weather
+      else if (weatherData.main.temp_max <= 95 && weatherData.main.temp_max > 81){
+          document.getElementById("weather").innerHTML = "<p>Its warm out</p>"
+               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+ 
+      }
+
+      // hot weather
+      else if (weatherData.main.temp_max > 95){
+          document.getElementById("weather").innerHTML = "<p>Its a hot one</p>"
+               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+ 
    }
+}
 
    // send request
    weatherRequest.send();
