@@ -1,12 +1,40 @@
-function zipValidation(zip) {
-   // initial testing
-   var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
-   console.log(isValidZip);
+function isReturn() {
+   if (localStorage.return == "yes") {
+      window.location = 'final.html';
+   }
+}
+
+function startValidation() {
+   // alert("DING!");
+   // grab the data
+   console.log("startValidation called")
+   var name = document.getElementById("iName").value;
+   console.log(name);
+   var zip = document.getElementById("iZip").value;
+   var sReddit = document.getElementById("iReddit").value;
+
+   // store the data
+   localStorage.return = "yes";
+   localStorage.name = name;
+   localStorage.zip = zip;
+   localStorage.sReddit = sReddit;
+
+   // debug
+   // console.log(localStorage.return
+   //    + " "
+   //    + localStorage.name
+   //    + " "
+   //    + localStorage.zip
+   //    + " "
+   //    + sReddit);
+
+   // load new page
+   window.location = 'final.html';
 }
 
 function getWeather() {
    // initial testing
-   var zip = 84120;
+   var zip = localStorage.zip;
    var weatherData;
 
    // Create request
@@ -30,50 +58,51 @@ function getWeather() {
 
       // replace HTML elements with weather
       // Cold weather
-      if (weatherData.main.temp < 32){
+      if (weatherData.main.temp < 32) {
          //console.log("ITS COLD");
          document.getElementById("weather").innerHTML = "<p>You'll need a heavy jackett</p>"
-               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
-               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
-               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+            + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+            + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+            + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
       }
 
       // cool weather
-      else if (weatherData.main.temp <= 60 && weatherData.main.temp >= 33){
+      else if (weatherData.main.temp <= 60 && weatherData.main.temp >= 33) {
          // console.log("its Cool");
          document.getElementById("weather").innerHTML = "<p>You'll need a jackett</p>"
-               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
-               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
-               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
- 
+            + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+            + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+            + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+
       }
 
       // nice weather
-      else if (weatherData.main.temp <= 80 && weatherData.main.temp >= 61){
-          document.getElementById("weather").innerHTML = "<p>Its nice out</p>"
-               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
-               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
-               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+      else if (weatherData.main.temp <= 80 && weatherData.main.temp >= 61) {
+         document.getElementById("weather").innerHTML = "<p>Its nice out</p>"
+            + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+            + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+            + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
       }
 
       // warm weather
-      else if (weatherData.main.temp <= 95 && weatherData.main.temp > 81){
-          document.getElementById("weather").innerHTML = "<p>Its warm out</p>"
-               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
-               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
-               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
- 
+      else if (weatherData.main.temp <= 95 && weatherData.main.temp > 81) {
+         document.getElementById("weather").innerHTML = "<p>Its warm out</p>"
+            + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+            + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+            + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+
       }
 
       // hot weather
-      else if (weatherData.main.temp > 95){
-          document.getElementById("weather").innerHTML = "<p>Its a hot one</p>"
-               + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
-               + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
-               + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
- 
+      else if (weatherData.main.temp > 95) {
+         document.getElementById("weather").innerHTML = "<p>Its a hot one</p>"
+            + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
+            + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
+            + "<p id='low'>Low: " + weatherData.main.temp_min + "°F</p>";
+
+      }
    }
-}
+
 
    // send request
    weatherRequest.send();
@@ -89,7 +118,12 @@ function getWeather() {
 function getReddit() {
    // create request
    var redditRequest = new XMLHttpRequest();
-   var sReddit = 'cleanmemes'
+   if (localStorage.sReddit) {
+      var sReddit = localStorage.sReddit
+   }
+   else {
+      sReddit = "cleanmemes";
+   }
 
    // open a connection
    openReddit();
@@ -107,10 +141,10 @@ function getReddit() {
       document.getElementById("redditTable").style.visibility = "visible";
       document.getElementById("subreddit").innerHTML = "r/" + reddit.data.children[0].data.subreddit;
       // Fill table
-      for (i = 0; i <= 1; i++) {
+      for (i = 0; i <= 2; i++) {
          // filter out NSFW content
          // if (reddit.data.children[i].over18 == true) {
-            // i++;
+         // i++;
          // }
          document.getElementById("link" + i + "TH").innerHTML = '<img src=' + reddit.data.children[i].data.thumbnail + '>';
          document.getElementById("link" + i + "T").innerHTML = '<a href=' + reddit.data.children[i].data.url + '>' + reddit.data.children[i].data.title + '</a>';

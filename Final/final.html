@@ -6,14 +6,16 @@
    <script type="text/javascript" src="final.js"></script>
 </head>
 
-<body onload = "getWeather(), getBackground(), getNews(), getReddit()">
+<body onload="getWeather(), getBackground(), getNews(), getReddit()">
    <div id="bg">
       <div id="myHome">
          <h2>Welcome to</h2>
          <h2>myHome</h2>
       </div>
       <div id="name">
-         <p>Hello {Name}</p>
+         <script>
+            document.getElementById("name").innerHTML = "Welcome Back " + localStorage.name;
+         </script>
       </div>
       <div id="news">
          <table id="newsTable">
