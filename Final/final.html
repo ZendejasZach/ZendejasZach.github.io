@@ -3,19 +3,18 @@
 <head>
    <title>FINAL</title>
    <link rel="stylesheet" href="final.css">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet'>
    <script type="text/javascript" src="final.js"></script>
 </head>
 
-<body onload="getWeather(), getBackground(), getNews(), getReddit()">
+<body onload="transitions(), getName(), getWeather(), getBackground(), getNews(), getReddit()">
    <div id="bg">
       <div id="myHome">
          <h2>Welcome to</h2>
          <h2>myHome</h2>
       </div>
       <div id="name">
-         <script>
-            document.getElementById("name").innerHTML = "Welcome Back " + localStorage.name;
-         </script>
+         <p id="greeting"></p>
       </div>
       <div id="news">
          <table id="newsTable">
@@ -69,6 +68,9 @@
             </tr>
          </table>
 
+      </div>
+      <div id="reset">
+         <button onclick="resetCache()">Reset</button>
       </div>
    </div>
 </body>

@@ -3,28 +3,29 @@
 <head>
    <title>Start</title>
    <link rel="stylesheet" href="final.css">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet'>
    <script type="text/javascript" src="final.js"></script>
 </head>
 
 <body onload="isReturn()" style="background:rgb(129, 255, 171);">
    <form id="startForm">
-      <!-- <form onsubmit="startValidation()" id="startForm"> -->
       <div id="heading">
+         <h2>Welcome to</h2>
          <h1>myHome</h1>
          <h2>Your Home on the Internet</h2>
          <p>Please enter your info below</p>
       </div>
       <p>Name:</p>
-      <input type="text" id="iName" required style="margin-bottom: 10px;">
+      <input type="text" id="iName" required style="margin-bottom: 10px;" >
       <p>Zip Code:</p>
-      <input type="text" id="iZip" pattern="[0-9]{5}" style=" margin-bottom: 10px;">
+      <input type="text" id="iZip" pattern="[0-9]{5}" style=" margin-bottom: 10px;" >
       <p>Favorite Subreddit:</p>
       <input type="text" id="iReddit">
       <br>
-      <input type="button" value="Lets Go" style="padding: 5px; margin: 10px;" onclick="startValidation()">
-      <!-- <input type="submit" value="Lets Go" style="padding: 5px; margin: 10px;" onclick="startValidation()"> -->
+      <!-- <input type="button" value="Lets Go" style="padding: 5px; margin: 10px;" onclick="startValidation()"> -->
+      <input type="submit" value="Lets Go" style="padding: 5px; margin: 10px;" onclick="startValidation()">
+      <p id="error"></p>
    </form>
-   <h1 id="Thanks">Thank You</h1>
 </body>
 
 </html>

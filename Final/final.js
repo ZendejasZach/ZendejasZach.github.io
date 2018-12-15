@@ -1,39 +1,49 @@
+// check if returning user
 function isReturn() {
    if (localStorage.return == "yes") {
       window.location = 'final.html';
    }
 }
 
+// start page data entry
 function startValidation() {
-   // alert("DING!");
    // grab the data
-   console.log("startValidation called")
-   var name = document.getElementById("iName").value;
-   console.log(name);
-   var zip = document.getElementById("iZip").value;
-   var sReddit = document.getElementById("iReddit").value;
-
-   // store the data
+   localStorage.name = document.getElementById("iName").value;
+   localStorage.zip = document.getElementById("iZip").value;
+   localStorage.sReddit = document.getElementById("iReddit").value;
    localStorage.return = "yes";
-   localStorage.name = name;
-   localStorage.zip = zip;
-   localStorage.sReddit = sReddit;
 
-   // debug
-   // console.log(localStorage.return
-   //    + " "
-   //    + localStorage.name
-   //    + " "
-   //    + localStorage.zip
-   //    + " "
-   //    + sReddit);
-
-   // load new page
-   window.location = 'final.html';
+   // verifiy data
+   if(localStorage.name && localStorage.zip){
+      window.location = 'final.html';
+   }
 }
 
+// div transitions
+function transitions(){
+   // myHome animations
+   document.getElementById("myHome").style.top = "2%";
+   document.getElementById("myHome").style.fontSize = "12"
+   
+   // name animations
+   document.getElementById("name").style.opacity = "1";
+
+   // News animations
+   document.getElementById("news").style.opacity = "1";
+
+   // reddit
+   document.getElementById("reddit").style.opacity = "1";
+
+   // weather
+   document.getElementById("weather").style.opacity = "1";
+}
+
+function getName(){
+   document.getElementById("greeting").innerHTML = "<p>Welcome Back " + localStorage.name +"</p>";
+}
+// function to populate the weather widget
 function getWeather() {
-   // initial testing
+   // initial variables
    var zip = localStorage.zip;
    var weatherData;
 
@@ -49,17 +59,13 @@ function getWeather() {
    // parse the data
    weatherRequest.onload = function () {
       weatherData = JSON.parse(this.response);
-      console.log(weatherData);
-      console.log(weatherData.main.temp);
       weatherData.main.temp = convertKelvin(weatherData.main.temp);
       weatherData.main.temp_max = convertKelvin(weatherData.main.temp_max);
       weatherData.main.temp_min = convertKelvin(weatherData.main.temp_min);
-      console.log(weatherData.main.temp_max);
 
       // replace HTML elements with weather
       // Cold weather
       if (weatherData.main.temp < 32) {
-         //console.log("ITS COLD");
          document.getElementById("weather").innerHTML = "<p>You'll need a heavy jackett</p>"
             + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
             + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
@@ -68,7 +74,6 @@ function getWeather() {
 
       // cool weather
       else if (weatherData.main.temp <= 60 && weatherData.main.temp >= 33) {
-         // console.log("its Cool");
          document.getElementById("weather").innerHTML = "<p>You'll need a jackett</p>"
             + "<p id='curTemp'>Current Tempreture: " + weatherData.main.temp + "°F</p>"
             + "<p id='high'>High: " + weatherData.main.temp_max + "°F</p>"
@@ -110,11 +115,11 @@ function getWeather() {
    //convert kelvin degrees to Fahernheit
    function convertKelvin(kelvin) {
       var fDegrees = ((kelvin - 273.15) * 1.8) + 32;
-      //console.log("F Degrees " + fDegrees);
       return fDegrees.toFixed(0);
    }
 }
 
+// populate data for reddit widget
 function getReddit() {
    // create request
    var redditRequest = new XMLHttpRequest();
@@ -134,29 +139,21 @@ function getReddit() {
    // parse the data
    redditRequest.onload = function () {
       var reddit = JSON.parse(this.response);
-      console.log(reddit);
-
       // replace with Reddit Data
-      // show headings
-      document.getElementById("redditTable").style.visibility = "visible";
+      document.getElementById("redditTable").style.opacity = 1;
       document.getElementById("subreddit").innerHTML = "r/" + reddit.data.children[0].data.subreddit;
       // Fill table
       for (i = 0; i <= 2; i++) {
-         // filter out NSFW content
-         // if (reddit.data.children[i].over18 == true) {
-         // i++;
-         // }
          document.getElementById("link" + i + "TH").innerHTML = '<img src=' + reddit.data.children[i].data.thumbnail + '>';
          document.getElementById("link" + i + "T").innerHTML = '<a href=' + reddit.data.children[i].data.url + '>' + reddit.data.children[i].data.title + '</a>';
       };
-
-
    }
 
    // send
    redditRequest.send();
 }
 
+// populate data for news widget
 function getNews() {
    var newsRequest = new XMLHttpRequest();
 
@@ -173,7 +170,6 @@ function getNews() {
    // Parse
    newsRequest.onload = function () {
       var news = JSON.parse(this.response);
-      console.log(news);
 
       // replace HTML
       for (i = 0; i < 4; i++) {
@@ -192,6 +188,7 @@ function getNews() {
    newsRequest.send();
 }
 
+// grabs background image
 function getBackground() {
    // create request
    var backgroundRequest = new XMLHttpRequest();
@@ -207,14 +204,29 @@ function getBackground() {
       var background = JSON.parse(this.response);
       console.log(background);
 
+      // make sure I get a background
+      var i = -1;
+      var isBackground = false;
+      while (isBackground == false){
+         i++;
+         if(background.data.children[i].data.url.endsWith(".jpg")){
+            console.log("Found background!");
+            isBackground = true;
+         }
+         else{
+            console.log("didnt find background");
+         }
+      }
       // replace background
-      // show headings
-      //document.getElementsByClassName("bg").style.background = "url('" + background.data.children[0].data.url + "')";
-      document.getElementById("bg").style.backgroundImage = "url('" + background.data.children[0].data.url + "')";
-      //docBack[0].style.backgroundimage = background.data.children[0].data.url;
-      console.log(background.data.children[0].data.url);
+      document.getElementById("bg").style.backgroundImage = "url('" + background.data.children[i].data.url + "')";
    };
 
    // send
    backgroundRequest.send();
+}
+
+// clears local data
+function resetCache(){
+   localStorage.return = "";
+   window.location = 'start.html';
 }
