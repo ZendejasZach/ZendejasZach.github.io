@@ -133,7 +133,7 @@ function getReddit() {
    // open a connection
    openReddit();
    function openReddit() {
-      redditRequest.open('GET', 'http://www.reddit.com/r/' + sReddit + '/new.json?sort=hot', true);
+      redditRequest.open('GET', 'https://www.reddit.com/r/' + sReddit + '/new.json?sort=hot', true);
    }
 
    // parse the data
@@ -196,7 +196,7 @@ function getBackground() {
    // open a connection
    openBackground();
    function openBackground() {
-      backgroundRequest.open('GET', 'http://www.reddit.com/r/earthporn/new.json?sort=top&t=day&limit=5', true);
+      backgroundRequest.open('GET', 'https://www.reddit.com/r/earthporn/new.json?sort=top&t=day&limit=5', true);
    }
 
    // parse the data
